@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Awal Lasisi — Junior Developer Portfolio</title>
+<meta name="description" content="Portfolio of Awal Lasisi, a junior developer skilled in HTML/CSS, JavaScript, React, TypeScript and Node.js.">
+<style>
+:root{
+  --bg:#08090c; --surface:#101217; --surface2:#151821; --text:#f4f5f7;
+  --muted:#9ca3af; --line:rgba(255,255,255,.09); --accent:#a7f3d0;
+  --accent2:#93c5fd; --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--text); background:
+  radial-gradient(circle at 15% 0%,rgba(147,197,253,.14),transparent 28%),
+  radial-gradient(circle at 90% 15%,rgba(167,243,208,.10),transparent 25%),var(--bg);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(calc(100% - 40px),var(--max));margin:auto}
+.nav{
+  position:sticky;top:0;z-index:20;background:rgba(8,9,12,.72);
+  backdrop-filter:blur(18px);border-bottom:1px solid var(--line)
+}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;letter-spacing:-.04em}.brand span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;color:#c7cad1;font-size:14px}
+.nav-links a:hover{color:white}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;padding:12px 17px;border-radius:999px;
+  border:1px solid var(--line);background:#fff;color:#090a0d;font-weight:750;font-size:14px;
+  transition:.25s transform,.25s box-shadow
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(0,0,0,.3)}
+.btn.ghost{background:rgba(255,255,255,.04);color:white}
+.hero{padding:105px 0 80px;min-height:670px;display:grid;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#cdd3dc;font-size:13px;border:1px solid var(--line);padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.035)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 15px var(--accent)}
+h1{font-size:clamp(52px,8vw,104px);line-height:.93;letter-spacing:-.075em;margin:25px 0 25px;max-width:900px}
+.gradient{background:linear-gradient(110deg,#fff 20%,#a7f3d0 55%,#93c5fd 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:650px;color:#aeb4bf;font-size:19px;margin-bottom:32px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.meta{margin-top:58px;display:flex;gap:34px;flex-wrap:wrap;color:#858b98;font-size:13px}
+.meta strong{display:block;color:#e7e9ed;font-size:16px;margin-bottom:3px}
+.section{padding:92px 0;border-top:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:#8e96a5}
+h2{font-size:clamp(34px,5vw,58px);letter-spacing:-.055em;line-height:1;margin:10px 0 0}
+.section-head p{max-width:430px;color:#8f96a4;margin:0}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{
+  position:relative;overflow:hidden;min-height:380px;border:1px solid var(--line);border-radius:26px;
+  background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+  padding:24px;display:flex;flex-direction:column;justify-content:space-between;
+  transition:.3s transform,.3s border-color,.3s box-shadow
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(167,243,208,.28);box-shadow:0 25px 70px rgba(0,0,0,.35)}
+.visual{height:190px;border-radius:18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative}
+.visual:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.13),transparent);transform:translateX(-100%);transition:.8s}
+.card:hover .visual:after{transform:translateX(100%)}
+.v1{background:radial-gradient(circle at 70% 25%,#7f1d1d,transparent 25%),linear-gradient(135deg,#050505,#201010 50%,#090909)}
+.v2{background:radial-gradient(circle at 25% 20%,#86efac,transparent 17%),linear-gradient(135deg,#0e1713,#263c2f 45%,#0b0d0e)}
+.v3{background:radial-gradient(circle at 72% 30%,#f59e0b,transparent 18%),linear-gradient(135deg,#130c07,#392114 45%,#0a0908)}
+.v4{background:radial-gradient(circle at 30% 30%,#93c5fd,transparent 20%),linear-gradient(135deg,#0b1320,#18233a 50%,#080c13)}
+.mock-window{position:absolute;inset:18px;background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px}
+.mock-top{height:8px;width:80px;border-radius:99px;background:rgba(255,255,255,.28);margin-bottom:16px}
+.mock-lines{display:grid;gap:8px}.mock-lines i{display:block;height:6px;background:rgba(255,255,255,.14);border-radius:99px}.mock-lines i:nth-child(1){width:68%}.mock-lines i:nth-child(2){width:90%}.mock-lines i:nth-child(3){width:52%}
+.card-top{display:flex;justify-content:space-between;gap:20px;margin-top:20px}
+.tag{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:#b9c0cb}
+.card h3{font-size:25px;letter-spacing:-.04em;margin:8px 0}
+.card p{color:#9198a5;font-size:14px;margin:0;max-width:450px}
+.arrow{font-size:25px;color:#dce1e8}
+.skills{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.skill{padding:22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035)}
+.skill b{font-size:15px}.skill span{display:block;color:#737b89;font-size:12px;margin-top:5px}
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+.about p{font-size:20px;color:#b0b6c1}
+.statement{border-left:2px solid var(--accent);padding-left:22px;color:#dce0e7}
+.contact{
+  border:1px solid var(--line);border-radius:28px;padding:42px;
+  background:linear-gradient(120deg,rgba(167,243,208,.08),rgba(147,197,253,.05));
+  display:flex;align-items:center;justify-content:space-between;gap:30px
+}
+.contact h2{max-width:650px}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+footer{padding:34px 0 55px;color:#69717f;font-size:13px;display:flex;justify-content:space-between;gap:20px}
+@media(max-width:800px){
+  .nav-links{display:none}.hero{padding-top:75px}.projects,.about{grid-template-columns:1fr}
+  .skills{grid-template-columns:repeat(2,1fr)}.contact{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+  .container{width:min(calc(100% - 28px),var(--max))}
+  h1{font-size:54px}.hero p{font-size:16px}.skills{grid-template-columns:1fr}
+  .card{min-height:350px}.contact{padding:28px}.section{padding:70px 0}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top">Awal<span>.</span></a>
+    <nav class="nav-links">
+      <a href="#work">Work</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="btn ghost" href="https://github.com/UnknownWdev?tab=repositories" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span> Available for opportunities</div>
+    <h1>Junior developer building <span class="gradient">clean, interactive web experiences.</span></h1>
+    <p>I’m Awal Lasisi — a junior developer focused on turning ideas into polished, responsive products with thoughtful UI, strong fundamentals and modern JavaScript tooling.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#work">Explore my work ↓</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/awal-lasisi-375a32299" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+    </div>
+    <div class="meta">
+      <div><strong>5</strong>Core technologies</div>
+      <div><strong>4</strong>Featured projects</div>
+      <div><strong>Frontend + Backend</strong>Development focus</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+<div class="container">
+  <div class="section-head">
+    <div><div class="kicker">Selected work</div><h2>Projects with personality.</h2></div>
+    <p>A curated set of projects demonstrating visual design, responsive interfaces, content structure and interactive frontend thinking.</p>
+  </div>
+  <div class="projects">
+    <a class="card" href="https://berserk-xi.vercel.app/" target="_blank" rel="noreferrer">
+      <div class="visual v1"><div class="mock-window"><div class="mock-top"></div><div class="mock-lines"><i></i><i></i><i></i></div></div></div>
+      <div><div class="card-top"><div><div class="tag">01 · Editorial / Experience</div><h3>Berserk Guide</h3><p>A rich dark-fantasy reference experience with structured storytelling, visual atmosphere and interactive content.</p></div><span class="arrow">↗</span></div></div>
+    </a>
+    <a class="card" href="https://landscape-rosy-eight.vercel.app/" target="_blank" rel="noreferrer">
+      <div class="visual v2"><div class="mock-window"><div class="mock-top"></div><div class="mock-lines"><i></i><i></i><i></i></div></div></div>
+      <div><div class="card-top"><div><div class="tag">02 · Studio / Brand</div><h3>Landscape Studio</h3><p>A refined studio landing page combining editorial typography, project presentation and an ecological design narrative.</p></div><span class="arrow">↗</span></div></div>
+    </a>
+    <a class="card" href="https://ember-oak-vert-delta.vercel.app/" target="_blank" rel="noreferrer">
+      <div class="visual v3"><div class="mock-window"><div class="mock-top"></div><div class="mock-lines"><i></i><i></i><i></i></div></div></div>
+      <div><div class="card-top"><div><div class="tag">03 · Product / Brand</div><h3>Ember & Oak</h3><p>A premium brand concept designed around warm visual language, strong hierarchy and immersive product storytelling.</p></div><span class="arrow">↗</span></div></div>
+    </a>
+    <a class="card" href="https://intern-six-rho.vercel.app/" target="_blank" rel="noreferrer">
+      <div class="visual v4"><div class="mock-window"><div class="mock-top"></div><div class="mock-lines"><i></i><i></i><i></i></div></div></div>
+      <div><div class="card-top"><div><div class="tag">04 · Content / Blog</div><h3>Mindful Notes</h3><p>A calm blog-style experience focused on readability, content hierarchy and a welcoming editorial interface.</p></div><span class="arrow">↗</span></div></div>
+    </a>
+  </div>
+</div>
+</section>
+
+<section class="section" id="skills">
+<div class="container">
+  <div class="section-head"><div><div class="kicker">Toolkit</div><h2>Built with modern fundamentals.</h2></div></div>
+  <div class="skills">
+    <div class="skill"><b>HTML / CSS</b><span>Semantic structure · responsive UI</span></div>
+    <div class="skill"><b>JavaScript</b><span>Interactions · application logic</span></div>
+    <div class="skill"><b>React</b><span>Component-based interfaces</span></div>
+    <div class="skill"><b>TypeScript</b><span>Typed, maintainable code</span></div>
+    <div class="skill"><b>Node.js</b><span>Server-side development</span></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="about">
+<div class="container about">
+  <div><div class="kicker">About</div><h2>A developer who cares about the details.</h2></div>
+  <div>
+    <p>I’m a junior developer growing across the full stack, with a strong interest in creating interfaces that feel intentional rather than generic.</p>
+    <p class="statement">My approach: understand the user, simplify the experience, write clean code, then add the visual details that make the product memorable.</p>
+  </div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+  <div class="contact">
+    <div><div class="kicker">Let’s connect</div><h2>Have a project, opportunity or idea? Let’s build something useful.</h2>
+      <div class="links">
+        <a class="btn" href="https://github.com/UnknownWdev?tab=repositories" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/awal-lasisi-375a32299" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+<footer class="container"><span>© 2026 Awal Lasisi</span><span>Junior Developer · Lagos, Nigeria</span></footer>
+</body>
+</html>
