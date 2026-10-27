@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://awal-lasisi.vercel.app/sitemap.xml
+Sitemap: https://portcon3.vercel.app/sitemap.xml
